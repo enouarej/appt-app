@@ -1,0 +1,45 @@
+<mat-card>
+  <h3>Make a new appointment!</h3>
+  <form (submit)='onSubmit($event, appointmentForm)' #appointmentForm = 'ngForm' autocomplete="off">
+
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name = "name"
+      required
+      ngModel
+      #name = "ngModel"
+      placeholder="Your Name">
+      <mat-error *ngIf="name.invalid">Please enter your name!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="date"
+      name = "time"
+      required
+      ngModel
+      #time = "ngModel"
+      placeholder="Time of the appointment">
+      <mat-error *ngIf="time.invalid">Please enter a valid time!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="text"
+      name = "complaint"
+      required
+      ngModel
+      #complaint = "ngModel"
+      minlength="5"
+      placeholder="Complaint">
+      <mat-error *ngIf="complaint.invalid">Please enter a valid complaint!</mat-error>
+      <button
+      mat-raised-button
+      color = "accent"
+      type = "submit"
+      *ngIf='appointmentForm.valid'
+      >ADD</button>
+    </mat-form-field>
+  </form>
+  <mat-error>{{err}}</mat-error>
+  <button mat-raised-button routerLink="/">RESET</button>
+</mat-card>

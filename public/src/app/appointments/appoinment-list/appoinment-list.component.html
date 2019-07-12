@@ -1,0 +1,29 @@
+<a routerLink="new" class = "button" mat-raised-button color="accent" >NEW APPOINTMENT</a>
+
+<div class="list">
+   <table table mat-table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date and time</th>
+        <th>Complaint</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let appointment of appointments'>
+        <td>{{appointment._id}}</td>
+        <td>{{appointment?.name}}</td>
+        <td>{{appointment?.time}}</td>
+        <td>{{appointment?.complaint}}</td>
+        <td><button mat-raised-button [routerLink]="['edit', appointment._id]">EDIT</button><button mat-raised-button [routerLink]="['details', appointment._id]">DETAILS</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="spacer">
+    <p class="info-text mat-body-1" *ngIf="appointments.length <=0 ">No products added yet!</p>
+  </div>
+
+</div>
+

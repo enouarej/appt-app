@@ -1,0 +1,13 @@
+<div class="details">
+  <h3 *ngIf="appointment">Details for {{appointment?.name}} </h3>
+    <h5> Name :</h5>
+    <p> {{ appointment?.name }} </p>
+    <h5> Date:</h5>
+    <p> {{ appointment?.time }} </p>
+    <h5> Complaint:</h5>
+    <p> {{ appointment?.complaint }} </p>
+    <button mat-raised-button color="warn" (click)='onDelete(appointment._id)'>DELETE</button>
+    <button mat-raised-button routerLink="/">BACK</button>
+</div>
+
+
